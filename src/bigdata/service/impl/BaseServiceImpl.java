@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import bigdata.service.BaseService;
  * 抽象service实现类，专门为service所用
  */
 @Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.REQUIRED)
+@EnableTransactionManagement
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	
 	private BaseDao<T> dao;
@@ -55,7 +57,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	}
 	
 	public List<T> findAll(){
-		return findByHQL("from"+clazz.getName());
+		return findByHQL("from "+clazz.getName());
 	}
 
 }

@@ -16,4 +16,5 @@ public interface BaseService<T> {
 	public T getEntity(Integer id);
 
 	public List<T> findByHQL(String sql, Object... objects);
+	public List<T> findAll();
 }
