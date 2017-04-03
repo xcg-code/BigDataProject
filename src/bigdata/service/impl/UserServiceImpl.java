@@ -22,4 +22,14 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		super.setDao(dao);
 	}
 
+	public User validateLoginInfo(String username, String password) {
+		String hql="from User u where u.name=? and u.password=?";
+		List<User> list=this.findByHQL(hql, username,password);
+		if(list!=null&&!list.isEmpty()){
+			return list.get(0);
+		}else{
+			return null;
+		}
+	}
+
 }

@@ -59,5 +59,11 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public List<T> findAll(){
 		return findByHQL("from "+clazz.getName());
 	}
+	
+	//按照id删除
+	public void deletedById(Integer id){
+		String hql="delete from "+clazz.getName()+" t where t.id=?";
+		this.executeByHQL(hql, id);
+	}
 
 }

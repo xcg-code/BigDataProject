@@ -13,5 +13,8 @@
 		<property name="age" type="integer">
 			<column name="age"></column>
 		</property>
+		<property name="password" type="string">
+			<column name="password"></column>
+		</property>
 	</class>
 </hibernate-mapping>

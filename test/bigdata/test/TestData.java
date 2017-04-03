@@ -25,12 +25,16 @@ public class TestData {
 	}
 	@Test
 	public void getService() throws Exception {
-		ApplicationContext ac=new ClassPathXmlApplicationContext("beans.xml");
+//		ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+		ApplicationContext ac=new AnnotationConfigApplicationContext(RootConfig.class);
 		UserService us=(UserService) ac.getBean("userService");
-		User u=new User();
-		u.setName("lili");
-		u.setAge(13);
-		us.saveEntity(u);
+		User u=null;
+		for(int i=1;i<40;i++){
+			u=new User();
+			u.setName("Mark"+i);
+			u.setAge(5+i);
+			us.saveEntity(u);
+		}
 	}
 	@Test 
 	public void findAll(){
