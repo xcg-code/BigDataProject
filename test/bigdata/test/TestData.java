@@ -26,7 +26,7 @@ public class TestData {
 		UserService us=(UserService) ac.getBean("userService");
 		User u=new User();
 		u.setName("lili");
-		u.setAge(18);
+		u.setAge(13);
 		us.saveEntity(u);
 	}
 }

@@ -1,5 +1,6 @@
 package bigdata.service.impl;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,6 +18,12 @@ import bigdata.service.BaseService;
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	
 	private BaseDao<T> dao;
+	private Class clazz;
+	public BaseServiceImpl() {
+		ParameterizedType type=(ParameterizedType) this.getClass().getGenericSuperclass();
+		clazz=(Class) type.getActualTypeArguments()[0];
+	}
+	
 	
 	@Resource
 	public void setDao(BaseDao dao){
@@ -43,8 +50,12 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		return dao.getEntity(id);
 	}
 
-	public List<T> finfByHQL(String sql, Object... objects) {
-		return dao.finfByHQL(sql, objects);
+	public List<T> findByHQL(String sql, Object... objects) {
+		return dao.findByHQL(sql, objects);
+	}
+	
+	public List<T> findAll(){
+		return findByHQL("from"+clazz.getName());
 	}
 
 }

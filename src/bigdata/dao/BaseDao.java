@@ -7,10 +7,10 @@ public interface BaseDao<T> {
 	public void saveEntity(T t);		
 	public void updateEntity(T t);
 	public void deleteEntity(T t);
-	public void executeByHQL(String sql,Object...objects);//执行HQL
+	public void executeByHQL(String hql,Object...objects);//执行HQL
 	
 	//读操作
 	public T getEntity(Integer id);
-	public List<T> finfByHQL(String sql,Object...objects);
+	public List<T> findByHQL(String hql,Object...objects);
 
 }

@@ -15,5 +15,5 @@ public interface BaseService<T> {
 	// 读操作
 	public T getEntity(Integer id);
 
-	public List<T> finfByHQL(String sql, Object... objects);
+	public List<T> findByHQL(String sql, Object... objects);
 }

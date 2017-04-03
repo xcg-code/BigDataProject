@@ -47,8 +47,8 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		return (T)sf.getCurrentSession().get(clazz,id);
 	}
 	
-	public List<T> finfByHQL(String sql, Object... objects) {
-		Query q=sf.getCurrentSession().createQuery(sql);
+	public List<T> findByHQL(String hql, Object... objects) {
+		Query q=sf.getCurrentSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){
 			q.setParameter(i, objects[i]);	//绑定参数
 		}
