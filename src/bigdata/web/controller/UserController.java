@@ -1,5 +1,6 @@
 package bigdata.web.controller;
 
+import java.net.InetAddress;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -28,8 +29,13 @@ public class UserController {
 
 	@RequestMapping(value = "/user/findall", method = RequestMethod.GET)
 	public String findAll(Model m) {
-		List<User> list = us.findAll();
-		m.addAttribute("userList", list);
+		try {
+			List<User> list = us.findAll();
+			m.addAttribute("userList", list);
+			m.addAttribute("server_addr", InetAddress.getLocalHost().getHostAddress());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "userList";
 	}
 

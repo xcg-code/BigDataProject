@@ -10,6 +10,7 @@
 <title>home.jsp</title>
 </head>
 <body>
+Response from : ${server_addr}<br>
 <table border="1">
 		<tr>
 			<td>ID</td><td>NAME</td><td>AGE</td><td>查看</td><td>删除</td>
