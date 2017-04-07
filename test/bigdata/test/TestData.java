@@ -1,7 +1,17 @@
 package bigdata.test;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.sql.DataSource;
 
@@ -13,6 +23,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import bigdata.config.RootConfig;
 import bigdata.model.User;
 import bigdata.service.UserService;
+import bigdata.util.Util;
 
 
 public class TestData {
@@ -58,6 +69,16 @@ public class TestData {
 			System.out.println(u.getId()+","+u.getName()+","+u.getAge());
 		}
 		
+	}
+	
+	@Test
+	public void readLog() throws Exception{
+		InputStream is=TestData.class.getClassLoader().getResourceAsStream("test.txt");
+		BufferedReader isr=new BufferedReader(new InputStreamReader(is));
+		String line;
+		while((line=isr.readLine())!=null){
+			System.out.println(Util.getTime(line));
+		}
 	}
 	
 }
