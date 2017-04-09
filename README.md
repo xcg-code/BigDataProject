@@ -7,9 +7,9 @@
 
 ## 相关技术
 ---
-1.电商业务部分使用spring mvc 作为web层实现，springframework作为业务层框架，采用hibernate实现数据持久化，并采用servlet3.0规范实现纯注解编程。
+1.前端业务部分使用spring mvc 作为web层实现，springframework作为业务层框架，采用hibernate实现数据持久化，并采用servlet3.0规范实现纯注解编程。
 
-2.采用maven实现项目依赖管理，并搭建局域网内的maven仓库服务器。
+2.采用maven实现项目依赖管理。
 
 3.使用Linux的cron调度任务实现nginx日志滚动，hive的周期性数据清洗。
 
