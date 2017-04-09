@@ -1,11 +1,11 @@
 # BigDataProject
 基于spring+hibernate web的大数据应用项目案例
 
-##项目架构图
+## 项目架构图
 ---
 ![](https://github.com/xcg-code/BigDataProject/blob/master/image/project.png)
 
-##相关技术
+## 相关技术
 ---
 1.电商业务部分使用spring mvc 作为web层实现，springframework作为业务层框架，采用hibernate实现数据持久化，并采用servlet3.0规范实现纯注解编程。
 2.采用maven实现项目依赖管理，并搭建局域网内的maven仓库服务器。
